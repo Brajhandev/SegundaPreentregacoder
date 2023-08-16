@@ -8,7 +8,7 @@ const cartManager = new ManagerMongoDb.CartManager();
 router.get('/', async (req, res) => {
     try{
         const cart = await cartManager.getCart()
-        res.send(cart)
+        res.send(JSON.parse(cart))
     }
     catch (err){
         res.status(500).send(err.message)
